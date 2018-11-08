@@ -13,10 +13,12 @@ export class HomePage {
 
   irParaNoticias() {
 
-    this.navCtrl.setRoot('NoticiasPage'); 
+    this.navCtrl.push('NoticiasPage'); 
     
   }
+  irParaCadastro() {
 
-
+    this.navCtrl.push('CadastroPage');
+  }
 
 }
