@@ -8,7 +8,15 @@
 
 
 <ion-content padding>
-  <img src="{{noticia.imagem"}}/>
+  <img src="{{noticia?.imagem"}}/>
   <h2>{{noticia.titulo}}</h2>
   <p>{{noticia.conteudo}}</p>
 </ion-content>
+
+/* Porque colocar interrogação (?) após o objeto notícia: se você não colocar a interrogação, vai dar erro. 
+Pois a interrogação significa que, ao mandar a requisição do html para o Webservice, o objeto pode não estar lá. 
+Isto significa que o HTML ignora a requisição enquanto o valor do obeto for nulo. Este fato otimiza a comunicaçã<object data="
+entre HTML e Webservice, ao melhorar o tempo de resposta entre a requisição (request) e a resposta (response). 
+*/
+
+

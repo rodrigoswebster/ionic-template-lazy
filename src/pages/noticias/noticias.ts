@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Noticia } from '../../model/noticia';
-import { NOTICIAS } from '../../config/api.config';
+
 import { DetalheNoticiaPage } from '../detalhe-noticia/detalhe-noticia';
+import { NoticiaService } from '../../service/noticia.service';
 
 /**
  * Generated class for the NoticiasPage page.
@@ -18,13 +19,19 @@ import { DetalheNoticiaPage } from '../detalhe-noticia/detalhe-noticia';
 })
 export class NoticiasPage {
 
-  public noticias: Noticia[] = NOTICIAS; //noticias: variável ; Classe (objeto): Noticia
+  public noticias: Noticia[] = []; //noticias: variável ; Classe (objeto): Noticia
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public noticiaService : NoticiaService) {
+
+    this.noticiaService.getNoticias()
+      .subscribe(response => {
+        console.log(response); 
+        this.noticias = response;
+      })
   }
 
-  detalheNoticia(noticiaObj: Noticia){
-    this.navCtrl.push(DetalheNoticiaPage,{'noticia': noticiaObj}); 
+  detalheNoticia(id:string){
+    this.navCtrl.push(DetalheNoticiaPage,{'id':id}); 
   }
 
 }

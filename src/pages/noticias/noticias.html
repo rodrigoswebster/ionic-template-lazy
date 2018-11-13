@@ -1,24 +1,25 @@
 <ion-header>
 
   <ion-navbar>
+      <button ion-button menuToogle> 
+          <ion-icon name="menu"></ion-icon> <!-- este comando é de um icone. Existem vários tipos de ícones disponíveis no site (ionic)-->
+        </button>
     <ion-title>Noticias</ion-title>
   </ion-navbar>
-    <button ion-button menuToogle> 
-      <ion-icon name="menu"></ion-icon> <!-- este comando é de um icone. Existem vários tipos de ícones disponíveis no site (ionic)-->
-    </button>
+
 
 </ion-header>
 
 
 <ion-content padding>
 
-    <ion-card *ngFor="let n of noticias" (click)="detalheNoticia(n)">
-      <img src={{n.imagem}}/>
+    <ion-card *ngFor="let n of noticias" (click)="detalheNoticia(n.id)">
+      <img src={{noticia.img}}/>
         <ion-card-content>
           <ion-card-title>
             {{n.titulo}}
             </ion-card-title>
-          
+                      
         </ion-card-content>
       </ion-card>
  
